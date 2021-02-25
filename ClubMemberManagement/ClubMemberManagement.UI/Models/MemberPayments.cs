@@ -17,6 +17,8 @@ namespace ClubMemberManagement.UI.Models
         public int MembershipFeeId { get; set; }
         public int MemberId { get; set; }
 
+        public decimal BetragZuZahlen { get; set; }
+
         //Navigation-Properties
         public virtual Member Member { get; set; }
         public virtual MembershipFee MembershipFee { get; set; }

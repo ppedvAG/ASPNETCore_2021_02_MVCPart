@@ -29,7 +29,13 @@ namespace ClubMemberManagement.UI.Controllers
         private MembershipFee GetMembershipFee(int age, int yearsInClub)
         {
             // Ermittel alle vorhandenen Regeln
-            var allMembershipFee = _context.MembershipFee.ToList();
+
+            //if (_context.MembershipFee.Any(n=>n.GiltAb.Value && n.GiltBis.Value))
+            //{ 
+            
+            //}
+ 
+            var allMembershipFee = _context.MembershipFee.Where(n => n.GiltAb.Value <= DateTime.Now && n.GiltBis.Value > DateTime.Now);
 
             IList<MembershipFee> validMembershipFees = new List<MembershipFee>();
             foreach (MembershipFee current  in allMembershipFee)
@@ -99,6 +105,9 @@ namespace ClubMemberManagement.UI.Controllers
 
             }
 
+            if (validMembershipFees.Count == 0)
+                throw new Exception("Es wurde keine Regel ermittelt");
+
             MembershipFee resultMembershipFee = validMembershipFees.OrderBy(n => n.Betrag).First();
 
             return resultMembershipFee;
@@ -130,6 +139,7 @@ namespace ClubMemberManagement.UI.Controllers
 
 
                     MemberPayment payment = new MemberPayment();
+                    payment.BetragZuZahlen = membershipFee.Betrag;
                     payment.Member = currentMember;
                     payment.MemberId = currentMember.ID;
                     payment.IsPayed = false;
