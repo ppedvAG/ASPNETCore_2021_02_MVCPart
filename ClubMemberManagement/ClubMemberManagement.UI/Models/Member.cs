@@ -23,6 +23,6 @@ namespace ClubMemberManagement.UI.Models
         public string Mobile { get; set; }
 
 
-        public ICollection<MemberPayment> MemberPayments { get; set; }
+        public virtual ICollection<MemberPayment> MemberPayments { get; set; }
     }
 }

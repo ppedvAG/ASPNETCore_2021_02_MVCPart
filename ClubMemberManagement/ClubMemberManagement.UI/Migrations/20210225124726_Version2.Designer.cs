@@ -4,14 +4,16 @@ using ClubMemberManagement.UI.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace ClubMemberManagement.UI.Migrations
 {
     [DbContext(typeof(ClubMemberManagementDbContext))]
-    partial class ClubMemberManagementDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210225124726_Version2")]
+    partial class Version2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

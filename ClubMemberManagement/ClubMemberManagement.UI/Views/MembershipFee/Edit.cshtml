@@ -25,6 +25,32 @@
                 <span asp-validation-for="Betrag" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="Age" class="control-label"></label>
+                <input asp-for="Age" class="form-control" />
+                <span asp-validation-for="Age" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AgeRule" class="control-label"></label>
+                @*<input asp-for="AgeRule" class="form-control" />*@
+                <select class="form-control" asp-for="AgeRule" asp-items="Html.GetEnumSelectList<OperatorRule>()">
+                    <option selected="selected" value="">Please select</option>
+                </select>
+                <span asp-validation-for="AgeRule" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="YearsInClub" class="control-label"></label>
+                <input asp-for="YearsInClub" class="form-control" />
+                <span asp-validation-for="YearsInClub" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="YearsInClubRule" class="control-label"></label>
+                @*<input asp-for="YearsInClubRule" class="form-control" />*@
+                <select class="form-control" asp-for="YearsInClubRule" asp-items="Html.GetEnumSelectList<OperatorRule>()">
+                    <option selected="selected" value="">Please select</option>
+                </select>
+                <span asp-validation-for="YearsInClubRule" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>
         </form>

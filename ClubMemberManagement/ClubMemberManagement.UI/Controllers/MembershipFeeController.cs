@@ -54,7 +54,7 @@ namespace ClubMemberManagement.UI.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Bezeichnung,Betrag")] MembershipFee membershipFee)
+        public async Task<IActionResult> Create([Bind("Id,Bezeichnung,Betrag,Age,AgeRule,YearsInClub,YearsInClubRule")] MembershipFee membershipFee)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +86,7 @@ namespace ClubMemberManagement.UI.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Bezeichnung,Betrag")] MembershipFee membershipFee)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Bezeichnung,Betrag,Age,AgeRule,YearsInClub,YearsInClubRule")] MembershipFee membershipFee)
         {
             if (id != membershipFee.Id)
             {

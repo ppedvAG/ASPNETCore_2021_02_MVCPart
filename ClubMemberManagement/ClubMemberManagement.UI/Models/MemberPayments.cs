@@ -11,14 +11,17 @@ namespace ClubMemberManagement.UI.Models
 
         public int Year { get; set; }
 
-        public bool IsPayed { get; set; }
-        public ICollection<PaymentHistory> PaymentHistory { get; set; }
+        public bool IsPayed { get; set; } = false;
+        
         
         public int MembershipFeeId { get; set; }
-        public MembershipFee MembershipFee { get; set; }
-
         public int MemberId { get; set; }
-        public Member Member { get; set; }
+
+        //Navigation-Properties
+        public virtual Member Member { get; set; }
+        public virtual MembershipFee MembershipFee { get; set; }
+
+        public virtual ICollection<PaymentHistory> PaymentHistory { get; set; }
     }
 
 
@@ -30,7 +33,7 @@ namespace ClubMemberManagement.UI.Models
         public DateTime PayedDate { get; set; }
 
         public int MemberPaymentId { get; set; }
-        public MemberPayment MemberPayments { get; set; }
+        public virtual MemberPayment MemberPayments { get; set; }
 
     }
 }

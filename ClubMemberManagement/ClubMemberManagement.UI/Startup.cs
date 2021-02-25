@@ -27,8 +27,19 @@ namespace ClubMemberManagement.UI
         {
             services.AddControllersWithViews();
 
-            services.AddDbContext<ClubMemberManagementDbContext>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("ClubMemberManagementDbContext")));
+
+    //        .AddDbContext<BloggingContext>(
+    //b => b.UseLazyLoadingProxies()
+    //      .UseSqlServer(myConnectionString));
+
+
+            services.AddDbContext<ClubMemberManagementDbContext>(
+                b=>b.UseLazyLoadingProxies()
+                .UseSqlServer(Configuration.GetConnectionString("ClubMemberManagementDbContext")));
+
+
+            //services.AddDbContext<ClubMemberManagementDbContext>(options =>
+            //        options.UseSqlServer(Configuration.GetConnectionString("ClubMemberManagementDbContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

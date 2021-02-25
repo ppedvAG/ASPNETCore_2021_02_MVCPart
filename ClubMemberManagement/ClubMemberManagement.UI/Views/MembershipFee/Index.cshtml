@@ -19,6 +19,18 @@
             <th>
                 @Html.DisplayNameFor(model => model.Betrag)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Age)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AgeRule)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.YearsInClub)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.YearsInClubRule)
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -30,6 +42,18 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Betrag)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Age)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AgeRule)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.YearsInClub)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.YearsInClubRule)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
