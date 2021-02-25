@@ -145,6 +145,8 @@ namespace ClubMemberManagement.UI.Controllers
 
             IList<MemberPayment> paymentsThisYear = _context.MembershipPayment.Where(n => n.Year == currentYear).ToList();
 
+
+            
             return View(paymentsThisYear);
         }
     }
