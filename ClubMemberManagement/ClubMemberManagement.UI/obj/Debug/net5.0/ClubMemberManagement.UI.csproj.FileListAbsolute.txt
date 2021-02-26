@@ -180,7 +180,6 @@ C:\Aktueller Kurs\ASPNETCore_2021_02_MVCPart\ClubMemberManagement\ClubMemberMana
 C:\Aktueller Kurs\ASPNETCore_2021_02_MVCPart\ClubMemberManagement\ClubMemberManagement.UI\obj\Debug\net5.0\Razor\Views\Member\Index.cshtml.g.cs
 C:\Aktueller Kurs\ASPNETCore_2021_02_MVCPart\ClubMemberManagement\ClubMemberManagement.UI\bin\Debug\net5.0\Castle.Core.dll
 C:\Aktueller Kurs\ASPNETCore_2021_02_MVCPart\ClubMemberManagement\ClubMemberManagement.UI\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Proxies.dll
-C:\Aktueller Kurs\ASPNETCore_2021_02_MVCPart\ClubMemberManagement\ClubMemberManagement.UI\obj\Debug\net5.0\ClubMemberManagement.UI.csprojAssemblyReference.cache
 C:\Aktueller Kurs\ASPNETCore_2021_02_MVCPart\ClubMemberManagement\ClubMemberManagement.UI\obj\Debug\net5.0\Razor\Views\MembershipFee\Create.cshtml.g.cs
 C:\Aktueller Kurs\ASPNETCore_2021_02_MVCPart\ClubMemberManagement\ClubMemberManagement.UI\obj\Debug\net5.0\Razor\Views\MembershipFee\Delete.cshtml.g.cs
 C:\Aktueller Kurs\ASPNETCore_2021_02_MVCPart\ClubMemberManagement\ClubMemberManagement.UI\obj\Debug\net5.0\Razor\Views\MembershipFee\Details.cshtml.g.cs
