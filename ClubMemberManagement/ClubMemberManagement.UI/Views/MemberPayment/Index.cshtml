@@ -1,4 +1,4 @@
-﻿@model IEnumerable<ClubMemberManagement.UI.Models.MemberPayment>
+﻿@model IEnumerable<ClubMemberManagement.UI.ViewModels.MemberPaymentVM>
 
 @{
     ViewData["Title"] = "Index";
@@ -14,22 +14,25 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Member.Vorname)
+                @Html.DisplayNameFor(model => model.MembershipPayment.Member.Vorname)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Member.Nachname)
+                @Html.DisplayNameFor(model => model.MembershipPayment.Member.Nachname)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Year)
+                @Html.DisplayNameFor(model => model.MembershipPayment.Year)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.IsPayed)
+                @Html.DisplayNameFor(model => model.MembershipPayment.IsPayed)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.MembershipFee.Bezeichnung)
+                @Html.DisplayNameFor(model => model.MembershipPayment.MembershipFee.Bezeichnung)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Member)
+                @Html.DisplayNameFor(model => model.MembershipPayment.MembershipFee.Betrag)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BezahlterBetrag)
             </th>
             <th></th>
         </tr>
@@ -38,27 +41,30 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Member.Vorname)
+                @Html.DisplayFor(modelItem => item.MembershipPayment.Member.Vorname)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Member.Nachname)
+                @Html.DisplayFor(modelItem => item.MembershipPayment.Member.Nachname)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Year)
+                @Html.DisplayFor(modelItem => item.MembershipPayment.Year)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.IsPayed)
+                @Html.DisplayFor(modelItem => item.MembershipPayment.IsPayed)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.MembershipFee.Bezeichnung)
+                @Html.DisplayFor(modelItem => item.MembershipPayment.MembershipFee.Bezeichnung)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Member.ID)
+                @Html.DisplayFor(modelItem => item.MembershipPayment.MembershipFee.Betrag)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                @Html.DisplayFor(modelItem => item.BezahlterBetrag)
+            </td>
+            <td>
+
+                <a class="btn btn-light" asp-controller="PaymentHistorie" asp-action="Create" asp-route-id="@item.MembershipPayment.Id">Betragszahlung eintragen</a>
+                <a class="btn btn-light" asp-controller="PaymentHistorie" asp-action="Index" asp-route-id="@item.MembershipPayment.Id">Übersicht Betragszahlungen</a>
             </td>
         </tr>
 }

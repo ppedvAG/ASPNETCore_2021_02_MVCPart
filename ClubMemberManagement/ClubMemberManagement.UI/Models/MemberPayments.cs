@@ -19,11 +19,14 @@ namespace ClubMemberManagement.UI.Models
 
         public decimal BetragZuZahlen { get; set; }
 
+
         //Navigation-Properties
         public virtual Member Member { get; set; }
         public virtual MembershipFee MembershipFee { get; set; }
 
         public virtual ICollection<PaymentHistory> PaymentHistory { get; set; }
+
+        
     }
 
 

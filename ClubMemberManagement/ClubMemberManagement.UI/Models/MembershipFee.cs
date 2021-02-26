@@ -16,8 +16,8 @@ namespace ClubMemberManagement.UI.Models
         [DisplayFormat(DataFormatString = "{0:C0}", ApplyFormatInEditMode = true)]
         public decimal Betrag { get; set; }
 
-        public DateTime? GiltAb { get; set; }
-        public DateTime? GiltBis { get; set; }
+        public DateTime GiltAb { get; set; }
+        public DateTime GiltBis { get; set; }
 
 
 

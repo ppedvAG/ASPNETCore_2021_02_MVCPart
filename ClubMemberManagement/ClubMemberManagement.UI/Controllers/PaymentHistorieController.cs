@@ -7,25 +7,27 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ClubMemberManagement.UI.Data;
 using ClubMemberManagement.UI.Models;
+using ClubMemberManagement.UI.ViewModels;
 
 namespace ClubMemberManagement.UI.Controllers
 {
-    public class MembershipFeeController : Controller
+    public class PaymentHistorieController : Controller
     {
         private readonly ClubMemberManagementDbContext _context;
 
-        public MembershipFeeController(ClubMemberManagementDbContext context)
+        public PaymentHistorieController(ClubMemberManagementDbContext context)
         {
             _context = context;
         }
 
-        // GET: MembershipFee
+        // GET: PaymentHistorie
         public async Task<IActionResult> Index()
         {
-            return View(await _context.MembershipFee.ToListAsync());
+            var clubMemberManagementDbContext = _context.PaymentHistory.Include(p => p.MemberPayments);
+            return View(await clubMemberManagementDbContext.ToListAsync());
         }
 
-        // GET: MembershipFee/Details/5
+        // GET: PaymentHistorie/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -33,39 +35,47 @@ namespace ClubMemberManagement.UI.Controllers
                 return NotFound();
             }
 
-            var membershipFee = await _context.MembershipFee
+            var paymentHistory = await _context.PaymentHistory
+                .Include(p => p.MemberPayments)
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (membershipFee == null)
+            if (paymentHistory == null)
             {
                 return NotFound();
             }
 
-            return View(membershipFee);
+            return View(paymentHistory);
         }
 
-        // GET: MembershipFee/Create
-        public IActionResult Create()
+
+        // GET: PaymentHistorie/Create
+        public IActionResult Create(int id)
         {
-            return View();
+            TempData["PaymentMemberId"] = id;
+            
+            PaymentHistory paymentHistory = new PaymentHistory();
+            paymentHistory.MemberPaymentId = id;
+            return View(paymentHistory);
         }
 
-        // POST: MembershipFee/Create
+        // POST: PaymentHistorie/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Bezeichnung,Betrag,GiltAb,GiltBis,Age,AgeRule,YearsInClub,YearsInClubRule")] MembershipFee membershipFee)
+        public async Task<IActionResult> Create([Bind("Payed,PayedDate, MemberPaymentId ")] PaymentHistory create)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(membershipFee);
+                create.MemberPaymentId = Convert.ToInt32(TempData["PaymentMemberId"]);
+                _context.Add(create);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(membershipFee);
+            //ViewData["MemberPaymentId"] = new SelectList(_context.MembershipPayment, "Id", "Id", paymentHistory.MemberPaymentId);
+            return View(create);
         }
 
-        // GET: MembershipFee/Edit/5
+        // GET: PaymentHistorie/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -73,22 +83,23 @@ namespace ClubMemberManagement.UI.Controllers
                 return NotFound();
             }
 
-            var membershipFee = await _context.MembershipFee.FindAsync(id);
-            if (membershipFee == null)
+            var paymentHistory = await _context.PaymentHistory.FindAsync(id);
+            if (paymentHistory == null)
             {
                 return NotFound();
             }
-            return View(membershipFee);
+            ViewData["MemberPaymentId"] = new SelectList(_context.MembershipPayment, "Id", "Id", paymentHistory.MemberPaymentId);
+            return View(paymentHistory);
         }
 
-        // POST: MembershipFee/Edit/5
+        // POST: PaymentHistorie/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Bezeichnung,Betrag,GiltAb,GiltBis,Age,AgeRule,YearsInClub,YearsInClubRule")] MembershipFee membershipFee)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Payed,PayedDate,MemberPaymentId")] PaymentHistory paymentHistory)
         {
-            if (id != membershipFee.Id)
+            if (id != paymentHistory.Id)
             {
                 return NotFound();
             }
@@ -97,12 +108,12 @@ namespace ClubMemberManagement.UI.Controllers
             {
                 try
                 {
-                    _context.Update(membershipFee);
+                    _context.Update(paymentHistory);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!MembershipFeeExists(membershipFee.Id))
+                    if (!PaymentHistoryExists(paymentHistory.Id))
                     {
                         return NotFound();
                     }
@@ -113,10 +124,11 @@ namespace ClubMemberManagement.UI.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(membershipFee);
+            ViewData["MemberPaymentId"] = new SelectList(_context.MembershipPayment, "Id", "Id", paymentHistory.MemberPaymentId);
+            return View(paymentHistory);
         }
 
-        // GET: MembershipFee/Delete/5
+        // GET: PaymentHistorie/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -124,30 +136,31 @@ namespace ClubMemberManagement.UI.Controllers
                 return NotFound();
             }
 
-            var membershipFee = await _context.MembershipFee
+            var paymentHistory = await _context.PaymentHistory
+                .Include(p => p.MemberPayments)
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (membershipFee == null)
+            if (paymentHistory == null)
             {
                 return NotFound();
             }
 
-            return View(membershipFee);
+            return View(paymentHistory);
         }
 
-        // POST: MembershipFee/Delete/5
+        // POST: PaymentHistorie/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var membershipFee = await _context.MembershipFee.FindAsync(id);
-            _context.MembershipFee.Remove(membershipFee);
+            var paymentHistory = await _context.PaymentHistory.FindAsync(id);
+            _context.PaymentHistory.Remove(paymentHistory);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool MembershipFeeExists(int id)
+        private bool PaymentHistoryExists(int id)
         {
-            return _context.MembershipFee.Any(e => e.Id == id);
+            return _context.PaymentHistory.Any(e => e.Id == id);
         }
     }
 }

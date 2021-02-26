@@ -10,6 +10,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using ClubMemberManagement.UI.Data;
+using Microsoft.AspNetCore.Mvc.ApplicationModels;
 
 namespace ClubMemberManagement.UI
 {
@@ -26,12 +27,6 @@ namespace ClubMemberManagement.UI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-
-
-    //        .AddDbContext<BloggingContext>(
-    //b => b.UseLazyLoadingProxies()
-    //      .UseSqlServer(myConnectionString));
-
 
             services.AddDbContext<ClubMemberManagementDbContext>(
                 b=>b.UseLazyLoadingProxies()
@@ -62,8 +57,14 @@ namespace ClubMemberManagement.UI
 
             app.UseAuthorization();
 
+           
+
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapControllerRoute(
+                    name: "PaymentsCreate",
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
+
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
