@@ -1,21 +1,23 @@
 {
   "version": 2,
-  "dgSpecHash": "NSj52tbv1LoFt41GU3cf0S9iQ6MnqNvD42SNupeN8aOJeob1Y+UNotHHvaqiJ7EL+I8Z8VQe4Vk0w0S5vVqM1A==",
+  "dgSpecHash": "OYFimlaLyY0pzDzrv3YeqKGYE1x+NCZZg5xAjaOBRDlFObkYXhmM0+3OLp9EmSQ4K0sQEZwtpLIZ2QHGT2zuXA==",
   "success": true,
   "projectFilePath": "C:\\Aktueller Kurs\\ASPNETCore_2021_02_MVCPart\\ClubMemberManagement\\ClubMemberManagement.UI\\ClubMemberManagement.UI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\kw4\\.nuget\\packages\\castle.core\\4.4.1\\castle.core.4.4.1.nupkg.sha512",
     "C:\\Users\\kw4\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\kw4\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",
+    "C:\\Users\\kw4\\.nuget\\packages\\microsoft.aspnetcore.mvc.razor.extensions\\5.0.3\\microsoft.aspnetcore.mvc.razor.extensions.5.0.3.nupkg.sha512",
+    "C:\\Users\\kw4\\.nuget\\packages\\microsoft.aspnetcore.mvc.razor.runtimecompilation\\5.0.3\\microsoft.aspnetcore.mvc.razor.runtimecompilation.5.0.3.nupkg.sha512",
     "C:\\Users\\kw4\\.nuget\\packages\\microsoft.aspnetcore.razor\\2.2.0\\microsoft.aspnetcore.razor.2.2.0.nupkg.sha512",
-    "C:\\Users\\kw4\\.nuget\\packages\\microsoft.aspnetcore.razor.language\\5.0.0\\microsoft.aspnetcore.razor.language.5.0.0.nupkg.sha512",
+    "C:\\Users\\kw4\\.nuget\\packages\\microsoft.aspnetcore.razor.language\\5.0.3\\microsoft.aspnetcore.razor.language.5.0.3.nupkg.sha512",
     "C:\\Users\\kw4\\.nuget\\packages\\microsoft.aspnetcore.razor.runtime\\2.2.0\\microsoft.aspnetcore.razor.runtime.2.2.0.nupkg.sha512",
     "C:\\Users\\kw4\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\kw4\\.nuget\\packages\\microsoft.codeanalysis.analyzers\\3.0.0\\microsoft.codeanalysis.analyzers.3.0.0.nupkg.sha512",
     "C:\\Users\\kw4\\.nuget\\packages\\microsoft.codeanalysis.common\\3.8.0\\microsoft.codeanalysis.common.3.8.0.nupkg.sha512",
     "C:\\Users\\kw4\\.nuget\\packages\\microsoft.codeanalysis.csharp\\3.8.0\\microsoft.codeanalysis.csharp.3.8.0.nupkg.sha512",
     "C:\\Users\\kw4\\.nuget\\packages\\microsoft.codeanalysis.csharp.workspaces\\3.8.0\\microsoft.codeanalysis.csharp.workspaces.3.8.0.nupkg.sha512",
-    "C:\\Users\\kw4\\.nuget\\packages\\microsoft.codeanalysis.razor\\5.0.0\\microsoft.codeanalysis.razor.5.0.0.nupkg.sha512",
+    "C:\\Users\\kw4\\.nuget\\packages\\microsoft.codeanalysis.razor\\5.0.3\\microsoft.codeanalysis.razor.5.0.3.nupkg.sha512",
     "C:\\Users\\kw4\\.nuget\\packages\\microsoft.codeanalysis.workspaces.common\\3.8.0\\microsoft.codeanalysis.workspaces.common.3.8.0.nupkg.sha512",
     "C:\\Users\\kw4\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\kw4\\.nuget\\packages\\microsoft.data.sqlclient\\2.0.1\\microsoft.data.sqlclient.2.0.1.nupkg.sha512",
@@ -187,7 +189,8 @@
     "C:\\Users\\kw4\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Users\\kw4\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
     "C:\\Users\\kw4\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
-    "C:\\Users\\kw4\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512"
+    "C:\\Users\\kw4\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512",
+    "C:\\Users\\kw4\\.nuget\\packages\\westwind.aspnetcore.livereload\\0.3.1\\westwind.aspnetcore.livereload.0.3.1.nupkg.sha512"
   ],
   "logs": []
 }

@@ -7,6 +7,10 @@
 
 <h1>Create</h1>
 
+
+
+
+
 <h4>MembershipFee</h4>
 <hr />
 <div class="row">
@@ -33,32 +37,57 @@
                 <input asp-for="GiltBis" class="form-control" />
                 <span asp-validation-for="GiltBis" class="text-danger"></span>
             </div>
+
+
+            <p>Regelauswahl</p>
             <div class="form-group">
-                <label asp-for="Age" class="control-label"></label>
-                <input asp-for="Age" class="form-control" />
-                <span asp-validation-for="Age" class="text-danger"></span>
+                <label class="control-label">Altersregel</label>
+                <input class="form-control" type="radio" id="selectAgeRule" value="Altersregel" name="selectRule" />
             </div>
+
             <div class="form-group">
-                <label asp-for="AgeRule" class="control-label"></label>
-                @*<input asp-for="AgeRule" class="form-control" />*@
-                <select class="form-control" asp-for="AgeRule" asp-items="Html.GetEnumSelectList<OperatorRule>()">
-                    <option selected="selected" value="">Please select</option>
-                </select>
-                <span asp-validation-for="AgeRule" class="text-danger"></span>
+                <label class="control-label">Vereinsdauer</label>
+                <input class="form-control" type="radio" id="selectClubYearsRule" value="Vereinsdauer" name="selectRule" />
             </div>
-            <div class="form-group">
-                <label asp-for="YearsInClub" class="control-label"></label>
-                <input asp-for="YearsInClub" class="form-control" />
-                <span asp-validation-for="YearsInClub" class="text-danger"></span>
+
+           
+
+            <div id="AgeRuleGroup">
+                <hr />
+                <legend>Preiskategorien nach Alter</legend>
+                <div class="form-group">
+                    <label asp-for="Age" class="control-label"></label>
+                    <input asp-for="Age" class="form-control" />
+                    <span asp-validation-for="Age" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="AgeRule" class="control-label"></label>
+                    @*<input asp-for="AgeRule" class="form-control" />*@
+                    <select class="form-control" asp-for="AgeRule" asp-items="Html.GetEnumSelectList<OperatorRule>()">
+                        <option selected="selected" value="">Please select</option>
+                    </select>
+                    <span asp-validation-for="AgeRule" class="text-danger"></span>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="YearsInClubRule" class="control-label"></label>
-                @*<input asp-for="YearsInClubRule" class="form-control" />*@
-                <select class="form-control" asp-for="YearsInClubRule" asp-items="Html.GetEnumSelectList<OperatorRule>()">
-                    <option selected="selected" value="">Please select</option>
-                </select>
-                <span asp-validation-for="YearsInClubRule" class="text-danger"></span>
+            
+            <div id="YearsInClubRuleGroup">
+                <hr />
+                <legend>Preiskategorie nach Mitgliedschaftsdauer (Jahre)</legend>
+                <div class="form-group">
+                    <label asp-for="YearsInClub" class="control-label"></label>
+                    <input asp-for="YearsInClub" class="form-control" />
+                    <span asp-validation-for="YearsInClub" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="YearsInClubRule" class="control-label"></label>
+                    @*<input asp-for="YearsInClubRule" class="form-control" />*@
+                    <select class="form-control" asp-for="YearsInClubRule" asp-items="Html.GetEnumSelectList<OperatorRule>()">
+                        <option selected="selected" value="">Please select</option>
+                    </select>
+                    <span asp-validation-for="YearsInClubRule" class="text-danger"></span>
+                </div>
             </div>
+            <hr />
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
@@ -72,4 +101,47 @@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    <script>
+
+        $(document).ready(function () {
+            $("#selectAgeRule").attr('checked', true);
+        });
+
+        $("#selectAgeRule").on('click', function ()
+        {
+            $("#YearsInClub").val(""); 
+            $("#YearsInClubRule").prop("selectedIndex", 0);
+            $("#YearsInClubRuleGroup").hide();
+
+            $("#AgeRuleGroup").show();
+        });
+
+        $("#selectClubYearsRule").on('click', function () {
+            $("#Age").val(""); 
+            $("#AgeRule").prop("selectedIndex", 0);
+            $("#AgeRuleGroup").hide();
+
+            $("#YearsInClubRuleGroup").show();
+        });
+
+        
+
+        //&('#Age').on('input', function () {
+        //    jQuery("YearsInClub").text("");
+        //    jQuery("#YearsInClubRule").val($("#YearsInClubRule:first").val());
+        //});
+        //$("#AgeRule").change(function () {
+
+        //});
+
+
+        //jQuery('#YearsInClub').on('input', function () {
+
+        //});
+        //$("#YearsInClubRule").change(function () {
+
+        //});
+    </script>
+    
 }

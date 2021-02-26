@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using ClubMemberManagement.UI.Data;
 using Microsoft.AspNetCore.Mvc.ApplicationModels;
+using Westwind.AspNetCore.LiveReload;
 
 namespace ClubMemberManagement.UI
 {
@@ -26,7 +27,14 @@ namespace ClubMemberManagement.UI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllersWithViews();
+            services.AddLiveReload(config =>
+            {
+                // optional - use config instead
+                //config.LiveReloadEnabled = true;
+                //config.FolderToMonitor = Path.GetFullname(Path.Combine(Env.ContentRootPath,"..")) ;
+            });
+
+            services.AddControllersWithViews().AddRazorRuntimeCompilation();
 
             services.AddDbContext<ClubMemberManagementDbContext>(
                 b=>b.UseLazyLoadingProxies()
@@ -43,6 +51,7 @@ namespace ClubMemberManagement.UI
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                app.UseLiveReload();
             }
             else
             {

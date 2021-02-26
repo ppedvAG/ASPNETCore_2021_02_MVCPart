@@ -127,3 +127,36 @@ Error Number:547,State:0,Class:16
    at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
    at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
    at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2021-02-26 13:40:45.625 +01:00 [INF] Starting web host
+2021-02-26 13:41:59.522 +01:00 [INF] Starting web host
+2021-02-26 13:48:55.024 +01:00 [INF] Starting web host
+2021-02-26 13:51:24.161 +01:00 [INF] Starting web host
+2021-02-26 13:58:55.164 +01:00 [INF] Starting web host
+2021-02-26 14:08:10.016 +01:00 [INF] Starting web host
+2021-02-26 14:09:40.015 +01:00 [INF] Starting web host
+2021-02-26 14:10:32.076 +01:00 [INF] Starting web host
+2021-02-26 14:12:41.064 +01:00 [INF] Starting web host
+2021-02-26 14:18:24.108 +01:00 [INF] Starting web host
+2021-02-26 14:22:07.166 +01:00 [INF] Starting web host
+2021-02-26 14:39:25.095 +01:00 [INF] Starting web host
+2021-02-26 14:47:19.157 +01:00 [INF] Starting web host
+2021-02-26 14:49:45.783 +01:00 [INF] Starting web host
+2021-02-26 14:52:43.226 +01:00 [INF] Starting web host
+2021-02-26 14:58:16.106 +01:00 [INF] Starting web host
+2021-02-26 15:04:38.604 +01:00 [INF] Starting web host
+2021-02-26 15:05:45.425 +01:00 [INF] Starting web host
+2021-02-26 15:07:13.596 +01:00 [INF] Starting web host
+2021-02-26 15:09:02.455 +01:00 [INF] Starting web host
+2021-02-26 15:10:59.962 +01:00 [INF] Starting web host
+2021-02-26 15:12:04.019 +01:00 [INF] Starting web host
+2021-02-26 15:19:08.450 +01:00 [INF] Starting web host
+2021-02-26 15:23:02.245 +01:00 [INF] Starting web host
+2021-02-26 15:31:08.718 +01:00 [INF] Starting web host
+2021-02-26 15:32:52.279 +01:00 [INF] Starting web host
+2021-02-26 15:35:22.726 +01:00 [INF] Starting web host
+2021-02-26 15:36:34.957 +01:00 [INF] Starting web host
+2021-02-26 15:37:39.950 +01:00 [INF] Starting web host
+2021-02-26 15:40:11.614 +01:00 [INF] Starting web host
+2021-02-26 15:43:20.445 +01:00 [INF] Starting web host
+2021-02-26 15:53:13.249 +01:00 [INF] Starting web host
+2021-02-26 15:55:34.384 +01:00 [INF] Starting web host

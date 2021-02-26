@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ClubMemberManagement.UI.Data;
 using ClubMemberManagement.UI.Models;
+using ClubMemberManagement.UI.ViewModels;
 
 namespace ClubMemberManagement.UI.Controllers
 {
+    
     public class MemberController : Controller
     {
         private readonly ClubMemberManagementDbContext _context;
@@ -22,7 +24,15 @@ namespace ClubMemberManagement.UI.Controllers
         // GET: Member
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Member.ToListAsync());
+            MemberOverviewVM vm = new MemberOverviewVM();
+            vm.ClubMemberList = await _context.Member.ToListAsync();
+
+
+            int currentYear = DateTime.Now.Year;
+            vm.Filters = _context.MembershipFee.Where(n => n.GiltAb <= DateTime.Now && n.GiltBis > DateTime.Now).ToList();
+
+
+            return View(vm.ClubMemberList);
         }
 
         // GET: Member/Details/5
@@ -140,6 +150,21 @@ namespace ClubMemberManagement.UI.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var member = await _context.Member.FindAsync(id);
+
+            foreach (MemberPayment paymentToDelete in member.MemberPayments)
+            {
+                if (paymentToDelete.PaymentHistory.Count() != 0)
+                {
+                    foreach (PaymentHistory historyToDelete in paymentToDelete.PaymentHistory)
+                    {
+                        _context.PaymentHistory.Remove(historyToDelete);
+                    }
+                    //_context.SaveChanges();
+                }
+
+                _context.MembershipPayment.Remove(paymentToDelete);
+            }
+            //_context.SaveChanges();
             _context.Member.Remove(member);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
